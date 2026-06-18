@@ -6,34 +6,39 @@
     <title>Dino Walk | Carbrain Studios</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .glass { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        body { background: radial-gradient(circle at top right, #064e3b, #020617); min-height: 100vh; }
-        .animate-in { animation: fadeIn 0.8s ease-out forwards; }
+        .glass { background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        body { background: radial-gradient(circle at top right, #064e3b, #020617); min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .btn-hover { transition: all 0.3s ease; }
+        .btn-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.5); }
     </style>
 </head>
-<body class="text-white font-sans flex items-center justify-center p-6">
+<body class="text-white font-sans p-6">
 
-    <div class="glass p-12 rounded-3xl max-w-lg text-center shadow-2xl animate-in border border-emerald-900/50">
-        <h2 class="text-emerald-400 font-bold tracking-widest uppercase text-xs mb-2">Carbrain Studios</h2>
-        <h1 class="text-6xl font-black mb-6 bg-clip-text text-transparent bg-gradient-to-br from-green-300 to-emerald-700">
+    <div class="glass p-12 rounded-3xl max-w-lg text-center shadow-2xl border border-emerald-900/50">
+        <h1 class="text-5xl font-black mb-6 bg-clip-text text-transparent bg-gradient-to-br from-green-300 to-emerald-700">
             DINO WALK
         </h1>
-        <p class="text-slate-300 mb-10 text-lg leading-relaxed">
-            La experiencia extrema de Dino Walk. <br>¡Descárgalo y comienza la aventura ahora!
+        <p class="text-slate-300 mb-10 text-lg">
+            ¡Descarga el juego oficial de Carbrain Studios y comienza la aventura ahora!
         </p>
 
-        <!-- Botón de Descarga Forzada -->
-        <a href="https://github.com/xdn044871-lang/DinoWalk/raw/main/Dino-Walk.html" 
-           download="DinoWalk.html"
-           class="group relative block w-full bg-emerald-600 hover:bg-emerald-500 py-5 rounded-2xl font-bold text-lg shadow-[0_0_20px_rgba(5,150,105,0.4)] transition-all hover:scale-105 active:scale-95">
-            <span class="relative z-10">Descargar Dino Walk</span>
-        </a>
-
-        <p class="mt-8 text-slate-500 text-xs uppercase tracking-widest">
-            © 2026 Carbrain Studios
-        </p>
+        <!-- Botón que ejecuta la descarga forzada -->
+        <button onclick="descargarJuego()" 
+                class="btn-hover w-full bg-emerald-600 hover:bg-emerald-500 py-5 rounded-2xl font-bold text-lg">
+            Descargar Dino Walk
+        </button>
     </div>
 
+    <script>
+        function descargarJuego() {
+            // Esto le dice al navegador que descargue el archivo directamente
+            const link = document.createElement('a');
+            link.href = 'dino-walk.html'; // Asegúrate de que el archivo se llame así en tu repo
+            link.download = 'DinoWalk.html';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
 </body>
 </html>
