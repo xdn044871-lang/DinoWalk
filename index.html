@@ -7,53 +7,33 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-fade { animation: fadeIn 0.8s ease-out forwards; }
-        
+        .glass { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
         body { background: radial-gradient(circle at top right, #064e3b, #020617); min-height: 100vh; }
-        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        
-        .btn-glow { transition: all 0.3s ease; box-shadow: 0 0 15px rgba(34, 197, 94, 0.4); }
-        .btn-glow:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(34, 197, 94, 0.6); }
+        .animate-in { animation: fadeIn 0.8s ease-out forwards; }
     </style>
 </head>
-<body class="text-white font-sans p-4 flex flex-col items-center justify-center min-h-screen">
+<body class="text-white font-sans flex items-center justify-center p-6">
 
-    <div class="animate-fade glass p-8 md:p-12 rounded-3xl max-w-2xl text-center shadow-2xl">
-        <h2 class="text-green-400 font-bold tracking-widest uppercase text-sm mb-2">Carbrain Studios presenta</h2>
-        <h1 class="text-6xl md:text-8xl font-black mb-6 bg-clip-text text-transparent bg-gradient-to-r from-green-300 to-emerald-600">
+    <div class="glass p-12 rounded-3xl max-w-lg text-center shadow-2xl animate-in border border-emerald-900/50">
+        <h2 class="text-emerald-400 font-bold tracking-widest uppercase text-xs mb-2">Carbrain Studios</h2>
+        <h1 class="text-6xl font-black mb-6 bg-clip-text text-transparent bg-gradient-to-br from-green-300 to-emerald-700">
             DINO WALK
         </h1>
-        <p class="text-slate-300 mb-8 text-lg">
-            Creado por <strong>GabriellTiny</strong> y <strong>Suspiron121secundari</strong>. ¿Estás listo para dominar los obstáculos?
+        <p class="text-slate-300 mb-10 text-lg leading-relaxed">
+            La experiencia extrema de Dino Walk. <br>¡Descárgalo y comienza la aventura ahora!
         </p>
 
-        <button id="downloadBtn" class="btn-glow bg-gradient-to-r from-green-500 to-emerald-700 hover:from-green-400 hover:to-emerald-600 px-8 py-4 rounded-full font-bold text-xl mb-8">
-            Descargar Dino Walk
-        </button>
+        <!-- Botón de Descarga Forzada -->
+        <a href="https://github.com/xdn044871-lang/DinoWalk/raw/main/Dino-Walk.html" 
+           download="DinoWalk.html"
+           class="group relative block w-full bg-emerald-600 hover:bg-emerald-500 py-5 rounded-2xl font-bold text-lg shadow-[0_0_20px_rgba(5,150,105,0.4)] transition-all hover:scale-105 active:scale-95">
+            <span class="relative z-10">Descargar Dino Walk</span>
+        </a>
 
-        <div class="flex gap-4 justify-center">
-            <a href="#" class="text-slate-400 hover:text-green-400 transition underline">Unirse a nuestro Discord</a>
-        </div>
+        <p class="mt-8 text-slate-500 text-xs uppercase tracking-widest">
+            © 2026 Carbrain Studios
+        </p>
     </div>
 
-    <!-- Notificación de agradecimiento -->
-    <div id="toast" class="hidden fixed bottom-10 bg-green-600 text-white px-6 py-3 rounded-full font-bold shadow-2xl animate-bounce">
-        ¡Gracias por descargar! :)
-    </div>
-
-    <script>
-        const btn = document.getElementById('downloadBtn');
-        const toast = document.getElementById('toast');
-
-        btn.addEventListener('click', () => {
-            // Mostrar notificación
-            toast.classList.remove('hidden');
-            setTimeout(() => toast.classList.add('hidden'), 3000);
-
-            // Aquí puedes redirigir a tu archivo HTML
-            console.log("Iniciando descarga de Dino Walk...");
-            // window.location.href = 'tu-juego.html'; 
-        });
-    </script>
 </body>
 </html>
